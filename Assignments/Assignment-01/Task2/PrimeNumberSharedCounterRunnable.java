@@ -1,4 +1,3 @@
-package Task2;
 public class PrimeNumberSharedCounterRunnable implements Runnable {
 
     private int threadID;

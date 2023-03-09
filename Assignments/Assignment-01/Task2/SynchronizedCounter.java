@@ -1,4 +1,3 @@
-package Task2;
 public class SynchronizedCounter{
     long counter;
 
