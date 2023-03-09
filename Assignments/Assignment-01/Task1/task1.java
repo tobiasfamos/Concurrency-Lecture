@@ -1,5 +1,8 @@
+package Task1;
 import java.util.ArrayList;
 import java.util.List;
+
+import Task2.MultiThreadPrimeCheck;
 
 // Write a Java program that takes as arguments two integers, T and N, and forks T threads that will together search for and print all primes between 1 and N. The program should evenly split the range [1..N] into T sub-ranges assigned to each thread.
 // Execute the program with N={10'000'000,100'000'000} and T={1,2,4,8,16}. Report execution times.
