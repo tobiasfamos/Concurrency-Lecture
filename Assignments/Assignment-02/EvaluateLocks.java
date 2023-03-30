@@ -8,9 +8,9 @@ public class EvaluateLocks {
 
     public static void main(String[] args) {
         int t = (args.length >= 1 ? Integer.parseInt(args[0]) : 2);
-        int n = (args.length >= 2 ? Integer.parseInt(args[1]) : 5);
+        int n = (args.length >= 2 ? Integer.parseInt(args[1]) : 10);
 
-        ReadWriteLock readWriteLock = new ReadWriteLockStarvationFree();
+        ReadWriteLock readWriteLock = new ReadWriteLockFiFo();
         Resource resource = new Resource();
 
         System.out.println("Start with " + t + " readers and writers");
