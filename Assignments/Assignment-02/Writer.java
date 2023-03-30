@@ -20,7 +20,7 @@ class Writer implements Runnable{
                 throw new RuntimeException(e);
             }
             this.resource.write(this.resource.read()+1);
-            System.out.println("Writer " + id + " wrote: " + currentWrite);
+            System.out.println("Writer " + id + " wrote: " + this.resource.read());
             this.lock.unlockWrite();
             currentWrite += 1;
         }

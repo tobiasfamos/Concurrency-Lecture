@@ -7,18 +7,18 @@ import java.util.List;
 public class EvaluateLocks {
 
     public static void main(String[] args) {
-        int t = (args.length >= 1 ? Integer.parseInt(args[0]) : 1);
-        long n = (args.length >= 2 ? Long.parseLong(args[1]) : 10);
+        int t = (args.length >= 1 ? Integer.parseInt(args[0]) : 2);
+        int n = (args.length >= 2 ? Integer.parseInt(args[1]) : 5);
 
-        ReadWriteLock readWriteLock = new ReadWriteLock();
+        ReadWriteLock readWriteLock = new ReadWriteLockStarvationFree();
         Resource resource = new Resource();
 
         System.out.println("Start with " + t + " readers and writers");
         // Create threads
         List<Thread> threads = new ArrayList<>();
         for (int i = 0; i < t; i++) {
-            threads.add(new Thread(new Reader(10, readWriteLock, resource, i)));
-            threads.add(new Thread(new Writer(10, readWriteLock, resource, i)));
+            threads.add(new Thread(new Reader(n, readWriteLock, resource, i)));
+            threads.add(new Thread(new Writer(n, readWriteLock, resource, i)));
         }
         // Start threads
         for (int i = 0; i < 2*t; i++) {
