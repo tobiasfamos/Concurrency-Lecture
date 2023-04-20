@@ -10,7 +10,6 @@ public class Cook implements Runnable {
     public void askForRefill(Pot pot){
         this.pot = pot;
         this.shouldRefill = true;
-        System.out.println(String.format("Cook ased to refill: %b", this.shouldRefill));
     }
 
     public void signalMealOver(){
