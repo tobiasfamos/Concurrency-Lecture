@@ -1,5 +1,10 @@
 /*
-
+This is a little unconventional but i found this approach to work pretty well.
+I have impelmented an inverse exponential wait. This means, at each point, a Savage has to wait for the pot to be
+refilled, thus has the chance of suffering starvation, the waiting time is reduced by half. And when the savage can
+finally eat, the wait time is reset.
+This ensures that eventually each savage will be able to eat (as when he is starved, his waiting time will shrink to such
+a small number, he will constantly ask for the pot until he gets it.
  */
 public class SavageFair {
 
