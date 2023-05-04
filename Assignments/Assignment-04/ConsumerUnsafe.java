@@ -5,31 +5,23 @@ import static java.lang.Thread.sleep;
 public class ConsumerUnsafe implements Runnable {
     final Queue<Integer> queue;
     int N;
+    int id;
 
-    public ConsumerUnsafe(Queue<Integer> queue, int N) {
+    public ConsumerUnsafe(Queue<Integer> queue, int N, int id) {
         this.queue = queue;
         this.N = N;
+        this.id = id;
     }
 
     @Override
     public void run() {
-        int count = 0;
-        while (count < this.N) {
-            Integer integer;
-            while (queue.isEmpty()) {
-                try {
-                    sleep(100);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }try{
-                integer = queue.remove();
-            }catch (Exception e){
-                continue;
-            }
 
+        int count = 0;
+        while (count < N) {
+            Integer integer = queue.poll();
             // Consume obj here
             count++;
         }
     }
 }
+

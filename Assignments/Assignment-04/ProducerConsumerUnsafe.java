@@ -5,22 +5,22 @@ public class ProducerConsumerUnsafe {
     public static void main(String[] args) throws InterruptedException {
         // int T = Integer.parseInt(args[0]);
         // int N = Integer.parseInt(args[1]);
-        int T = 10;
-        int N = 200;
+        int T = 2;
+        int N = 20;
         Queue<Integer> queue = new LinkedList<>();
         Thread[] producers = new Thread[T];
         Thread[] consumers = new Thread[T];
 
         // Start T producer threads
         for (int i = 0; i < T; i++) {
-            ProducerUnsafe prod = new ProducerUnsafe(queue, N);
+            ProducerUnsafe prod = new ProducerUnsafe(queue, N, i);
             producers[i] = new Thread(prod);
             producers[i].start();
         }
 
         // Start T consumer threads
         for (int i = 0; i < T; i++) {
-            ConsumerUnsafe cons = new ConsumerUnsafe(queue, N);
+            ConsumerUnsafe cons = new ConsumerUnsafe(queue, N, i);
             consumers[i] = new Thread(cons);
             consumers[i].start();
         }
@@ -30,6 +30,5 @@ public class ProducerConsumerUnsafe {
             producers[i].join();
             consumers[i].join();
         }
-        System.out.println(queue.toString());
     }
 }

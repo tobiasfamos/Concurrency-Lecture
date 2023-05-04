@@ -3,10 +3,12 @@ import java.util.Queue;
 public class ProducerUnsafe implements Runnable {
     final Queue<Integer> queue;
     int N;
+    int id;
 
-    public ProducerUnsafe(Queue<Integer> queue, int N) {
+    public ProducerUnsafe(Queue<Integer> queue, int N, int id) {
         this.queue = queue;
         this.N = N;
+        this.id = id;
     }
 
     @Override
