@@ -5,8 +5,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class MatrixMultiplication {
-    public static void main(String[] args) throws Exception {
-        int N = 100;
+    private int N;
+    public MatrixMultiplication(int N){
+        this.N = N;
+    }
+    public void mutiply() throws Exception {
         int[][] A = generateRandomMatrix(N);
         int[][] B = generateRandomMatrix(N);
         int[][] C = new int[N][N];
