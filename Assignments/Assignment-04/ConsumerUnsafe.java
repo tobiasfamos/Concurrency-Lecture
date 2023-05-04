@@ -22,8 +22,11 @@ public class ConsumerUnsafe implements Runnable {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+            }try{
+                integer = queue.remove();
+            }catch (Exception e){
+                continue;
             }
-            integer = queue.remove();
 
             // Consume obj here
             count++;
