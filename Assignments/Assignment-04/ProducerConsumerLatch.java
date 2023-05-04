@@ -5,10 +5,9 @@ import java.util.concurrent.CountDownLatch;
 
 public class ProducerConsumerLatch {
     public static void main(String[] args) throws InterruptedException {
-        // int T = Integer.parseInt(args[0]);
-        // int N = Integer.parseInt(args[1]);
-        int T = 5;
-        int N = 200;
+        int T = Integer.parseInt(args[0]);
+        int N = Integer.parseInt(args[1]);
+
         Queue<Integer> queue = new ConcurrentLinkedQueue<>();
         Thread[] producers = new Thread[T];
         Thread[] consumers = new Thread[T];

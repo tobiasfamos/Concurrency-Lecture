@@ -3,10 +3,8 @@ import java.util.Queue;
 
 public class ProducerConsumerSafe {
     public static void main(String[] args) throws InterruptedException {
-        // int T = Integer.parseInt(args[0]);
-        // int N = Integer.parseInt(args[1]);
-        int T = 10;
-        int N = 200;
+        int T = Integer.parseInt(args[0]);
+        int N = Integer.parseInt(args[1]);
         Queue<Integer> queue = new LinkedList<>();
         Thread[] producers = new Thread[T];
         Thread[] consumers = new Thread[T];

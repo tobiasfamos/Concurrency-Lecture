@@ -3,10 +3,9 @@ import java.util.LinkedList;
 
 public class ProducerConsumerUnsafe {
     public static void main(String[] args) throws InterruptedException {
-        // int T = Integer.parseInt(args[0]);
-        // int N = Integer.parseInt(args[1]);
-        int T = 2;
-        int N = 20;
+        int T = Integer.parseInt(args[0]);
+        int N = Integer.parseInt(args[1]);
+
         Queue<Integer> queue = new LinkedList<>();
         Thread[] producers = new Thread[T];
         Thread[] consumers = new Thread[T];
